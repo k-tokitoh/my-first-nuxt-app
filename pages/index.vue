@@ -23,6 +23,7 @@
           GitHub
         </a>
       </div>
+      <div><NuxtLink to="/gallery">gallery</NuxtLink></div>
     </div>
   </div>
 </template>
