@@ -1,5 +1,12 @@
 https://my-first-nuxt-app.vercel.app
 
+## Spec
+
+- Framework
+  - Nuxt.js
+- UI library
+  - Vuetify
+
 ## Build Setup
 
 ```bash

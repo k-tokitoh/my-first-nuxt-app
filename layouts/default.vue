@@ -1,6 +1,11 @@
 <template>
   <div>
-    <Nuxt />
+    <v-app>
+      <AppBar />
+      <v-main>
+        <Nuxt />
+      </v-main>
+    </v-app>
   </div>
 </template>
 
@@ -22,5 +27,14 @@ html {
 *::after {
   box-sizing: border-box;
   margin: 0;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
 }
 </style>

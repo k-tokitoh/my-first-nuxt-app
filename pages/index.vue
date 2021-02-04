@@ -1,13 +1,13 @@
 <template>
-  <div>
-    <Logo />
-    <h1 class="title">My first Nuxt app</h1>
+  <v-container>
+    <h1>My First Nuxt App</h1>
     <div><NuxtLink to="/gallery">gallery</NuxtLink></div>
     <div>Current time is {{ current.toLocaleString() }}</div>
     <div>You visited this page at {{ visitedAt.toLocaleString() }}</div>
     <div>This page is generated at {{ generatedAt.toLocaleString() }}</div>
     <Counter />
-  </div>
+    <div class="foo"></div>
+  </v-container>
 </template>
 
 <script lang="ts">
@@ -31,4 +31,9 @@ export default Vue.extend({
 })
 </script>
 
-<style></style>
+<style>
+.foo {
+  background-color: red;
+  height: 3000px;
+}
+</style>
