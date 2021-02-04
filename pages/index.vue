@@ -1,24 +1,31 @@
 <template>
-  <v-container>
-    <h1>My First Nuxt App</h1>
-    <div><NuxtLink to="/gallery">gallery</NuxtLink></div>
-    <div>Current time is {{ current.toLocaleString() }}</div>
-    <div>You visited this page at {{ visitedAt.toLocaleString() }}</div>
-    <div>This page is generated at {{ generatedAt.toLocaleString() }}</div>
-    <Counter />
-    <div class="foo"></div>
-  </v-container>
+  <v-parallax
+    dark
+    :src="require('@/assets/index.jpg')"
+    id="parallax"
+    height="100%"
+  >
+    <v-container>
+      <h1>My First Nuxt App</h1>
+      <div>Current time is {{ current.toLocaleString() }}</div>
+      <div>You visited this page at {{ visitedAt.toLocaleString() }}</div>
+      <div>This page is generated at {{ generatedAt.toLocaleString() }}</div>
+      <Counter />
+      <LoremIpsum />
+    </v-container>
+  </v-parallax>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
 
 export default Vue.extend({
-  asyncData() {
-    return { generatedAt: new Date() }
-  },
   data() {
-    return { visitedAt: new Date(), current: new Date() }
+    return {
+      current: new Date(),
+      visitedAt: new Date(),
+      generatedAt: new Date(),
+    }
   },
   methods: {
     updateCurrent() {
@@ -32,8 +39,7 @@ export default Vue.extend({
 </script>
 
 <style>
-.foo {
-  background-color: red;
-  height: 3000px;
+#main {
+  color: #fff;
 }
 </style>
