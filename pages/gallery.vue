@@ -24,7 +24,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import Http from '@nuxt/http'
+import {} from '@nuxt/http'
 
 const shuffle = (array: Array<any>) => {
   for (var i = array.length - 1; i > 0; i--) {
@@ -36,14 +36,20 @@ const shuffle = (array: Array<any>) => {
   return array
 }
 
+type Data = {
+  ids: Array<any>
+}
+
 export default Vue.extend({
-  components: { Http },
-  async asyncData({ $http }) {
-    const res: Array<any> = await $http.$get(
+  data(): Data {
+    return { ids: [] }
+  },
+  async mounted() {
+    const res: Array<any> = await this.$http.$get(
       'https://picsum.photos/v2/list?limit=12'
     )
     const ids = shuffle(res.map((photo) => photo.id))
-    return { ids }
+    this.ids = ids
   },
 })
 </script>
