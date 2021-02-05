@@ -1,7 +1,7 @@
 <template>
   <v-app-bar app>
     <v-app-bar-nav-icon>
-      <NuxtLink to="/"><Logo /></NuxtLink>
+      <NuxtLink to="/"><AppLogo /></NuxtLink>
     </v-app-bar-nav-icon>
     <ul id="nav">
       <li><NuxtLink to="/">top</NuxtLink></li>
@@ -10,14 +10,14 @@
   </v-app-bar>
 </template>
 
-<style>
+<style scoped>
 #nav {
   display: flex;
   padding: 10px;
 }
 
 #nav li {
-  width: 7vw;
+  width: 8vw;
   text-align: center;
 }
 

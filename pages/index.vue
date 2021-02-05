@@ -37,9 +37,3 @@ export default Vue.extend({
   },
 })
 </script>
-
-<style>
-#main {
-  color: #fff;
-}
-</style>
