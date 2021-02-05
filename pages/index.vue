@@ -20,11 +20,17 @@
 import Vue from 'vue'
 
 export default Vue.extend({
+  async asyncData({ $http }) {
+    const res = await $http.get(
+      'http://worldtimeapi.org/api/timezone/Europe/London'
+    )
+    const json = await res.json()
+    return { generatedAt: new Date(json.datetime) }
+  },
   data() {
     return {
       current: new Date(),
       visitedAt: new Date(),
-      generatedAt: new Date(),
     }
   },
   methods: {
@@ -37,9 +43,3 @@ export default Vue.extend({
   },
 })
 </script>
-
-<style>
-#main {
-  color: #fff;
-}
-</style>
