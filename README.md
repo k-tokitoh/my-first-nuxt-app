@@ -1,11 +1,15 @@
 https://my-first-nuxt-app.vercel.app
 
-## Spec
+## Things Tried
 
 - Framework
-  - Nuxt.js
+  - [Nuxt.js](https://nuxtjs.org/)
+- Hosting
+  - [Vercel](https://vercel.com/)
 - UI library
-  - Vuetify
+  - [Vuetify](https://vuetifyjs.com/)
+- Task Management
+  - [Github Projects](https://github.com/features/project-management/)
 
 ## Build Setup
 

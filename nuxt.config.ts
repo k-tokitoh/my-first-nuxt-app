@@ -31,6 +31,7 @@ export default {
     // https://go.nuxtjs.dev/typescript
     '@nuxt/typescript-build',
     '@nuxtjs/vuetify',
+    '@nuxt/http',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
