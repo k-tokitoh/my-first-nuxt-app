@@ -47,5 +47,14 @@ export default {
       short_name: 'MFNA',
       useWebmanifestExtension: false,
     },
+    meta: {
+      ogType: 'website',
+      ogSiteName: 'My First Nuxt App',
+      ogTitle: 'My First Nuxt App - Top',
+      ogDescription: 'A website created for personal practice for Nuxt.js etc.',
+      ogHost: process.env.BASE_URL,
+      ogImage: true,
+      twitterCard: 'summary',
+    },
   },
 }
