@@ -31,12 +31,42 @@ export default {
     // https://go.nuxtjs.dev/typescript
     '@nuxt/typescript-build',
     '@nuxtjs/vuetify',
+    '@nuxtjs/pwa',
     '@nuxt/http',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [],
+  modules: ['@nuxtjs/onesignal', '@nuxtjs/pwa'],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
+
+  pwa: {
+    manifest: {
+      name: 'My First Nuxt App',
+      short_name: 'MFNA',
+      useWebmanifestExtension: false,
+    },
+    meta: {
+      ogType: 'website',
+      ogSiteName: 'My First Nuxt App',
+      ogTitle: 'My First Nuxt App - Top',
+      ogDescription: 'A website created for personal practice for Nuxt.js etc.',
+      ogHost: process.env.BASE_URL,
+      ogImage: true,
+      twitterCard: 'summary',
+    },
+    workbox: {
+      preCaching: ['/example.json'],
+    },
+  },
+  oneSignal: {
+    init: {
+      appId: 'f7592648-dab6-41ae-8f13-6a44e0465684',
+      allowLocalhostAsSecureOrigin: true,
+      welcomeNotification: {
+        disable: true,
+      },
+    },
+  },
 }
