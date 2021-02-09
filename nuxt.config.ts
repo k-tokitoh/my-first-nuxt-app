@@ -56,5 +56,8 @@ export default {
       ogImage: true,
       twitterCard: 'summary',
     },
+    workbox: {
+      preCaching: ['/example.json'],
+    },
   },
 }
