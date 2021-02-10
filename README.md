@@ -8,10 +8,14 @@ https://mfna.k-tokitoh.com/
     - Target: static
 - Platform
   - [AWS Amplify](https://aws.amazon.com/amplify/)
+- Authentication
+  - [AWS Cognito](https://aws.amazon.com/jp/cognito/)
+- State Management
+  - [Vuex](https://vuex.vuejs.org/)
+- UI Library
+  - [Vuetify](https://vuetifyjs.com/)
 - PWA
   - [nuxt/pwa](https://pwa.nuxtjs.org/)
-- UI library
-  - [Vuetify](https://vuetifyjs.com/)
 - Task Management
   - [Github Projects](https://github.com/features/project-management/)
 - Others

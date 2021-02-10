@@ -6,9 +6,23 @@
     <ul id="nav">
       <li><NuxtLink to="/">top</NuxtLink></li>
       <li><NuxtLink to="/gallery">gallery</NuxtLink></li>
+      <li>
+        <NuxtLink to="/dashboard">{{
+          currentUser ? 'dashboard' : 'login'
+        }}</NuxtLink>
+      </li>
     </ul>
   </v-app-bar>
 </template>
+
+<script lang="ts">
+import Vue from 'vue'
+import { mapState } from 'vuex'
+
+export default Vue.extend({
+  computed: mapState(['currentUser']),
+})
+</script>
 
 <style scoped>
 #nav {
