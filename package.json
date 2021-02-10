@@ -9,8 +9,8 @@
   },
   "dependencies": {
     "@aws-amplify/ui-vue": "^0.3.1",
-    "@nuxt/http": "^0.6.2",
     "@nuxt/typescript-runtime": "^2.0.1",
+    "@nuxtjs/axios": "^5.13.1",
     "@nuxtjs/onesignal": "^3.0.0-beta.16",
     "aws-amplify": "^3.3.17",
     "core-js": "^3.8.3",

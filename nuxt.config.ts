@@ -32,11 +32,10 @@ export default {
     '@nuxt/typescript-build',
     '@nuxtjs/vuetify',
     '@nuxtjs/pwa',
-    '@nuxt/http',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ['@nuxtjs/onesignal', '@nuxtjs/pwa'],
+  modules: ['@nuxtjs/axios', '@nuxtjs/onesignal', '@nuxtjs/pwa'],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},

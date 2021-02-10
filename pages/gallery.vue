@@ -38,7 +38,6 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import {} from '@nuxt/http'
 
 type Data = {
   ids: Array<number>
@@ -67,7 +66,7 @@ export default Vue.extend({
     async addIds() {
       this.loading = true
       const page = Math.ceil(Math.random() * 64)
-      const res: Array<{ id: number }> = await this.$http.$get(
+      const res: Array<{ id: number }> = await this.$axios.$get(
         `https://picsum.photos/v2/list?page=${page}&limit=12`
       )
       const ids = res.map((photo) => photo.id)

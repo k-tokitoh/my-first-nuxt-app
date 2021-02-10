@@ -20,12 +20,11 @@
 import Vue from 'vue'
 
 export default Vue.extend({
-  async asyncData({ $http }) {
-    const res = await $http.get(
+  async asyncData({ $axios }) {
+    const res = await $axios.get(
       'http://worldtimeapi.org/api/timezone/Europe/London'
     )
-    const json = await res.json()
-    return { generatedAt: new Date(json.datetime) }
+    return { generatedAt: new Date(res.data.datetime) }
   },
   data() {
     return {
