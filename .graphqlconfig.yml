@@ -2,7 +2,7 @@ projects:
   mfna:
     schemaPath: graphql/schema.json
     includes:
-      - src/graphql/**/*.ts
+      - ./graphql/**/*.ts
     excludes:
       - ./amplify/**
     extensions:
@@ -10,3 +10,7 @@ projects:
         codeGenTarget: typescript
         generatedFileName: src/API.ts
         docsFilePath: graphql
+        maxDepth: 2
+extensions:
+  amplify:
+    version: 3

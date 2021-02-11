@@ -6,6 +6,7 @@
     <ul id="nav">
       <li><NuxtLink to="/">top</NuxtLink></li>
       <li><NuxtLink to="/gallery">gallery</NuxtLink></li>
+      <li><NuxtLink to="/square">square</NuxtLink></li>
       <li>
         <NuxtLink to="/dashboard">{{
           currentUser ? 'dashboard' : 'login'

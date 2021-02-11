@@ -3,8 +3,8 @@
 // this is an auto generated file. This will be overwritten
 
 export const onCreateComment = /* GraphQL */ `
-  subscription OnCreateComment {
-    onCreateComment {
+  subscription OnCreateComment($owner: String) {
+    onCreateComment(owner: $owner) {
       id
       body
       owner
@@ -14,8 +14,8 @@ export const onCreateComment = /* GraphQL */ `
   }
 `;
 export const onUpdateComment = /* GraphQL */ `
-  subscription OnUpdateComment {
-    onUpdateComment {
+  subscription OnUpdateComment($owner: String) {
+    onUpdateComment(owner: $owner) {
       id
       body
       owner
@@ -25,8 +25,8 @@ export const onUpdateComment = /* GraphQL */ `
   }
 `;
 export const onDeleteComment = /* GraphQL */ `
-  subscription OnDeleteComment {
-    onDeleteComment {
+  subscription OnDeleteComment($owner: String) {
+    onDeleteComment(owner: $owner) {
       id
       body
       owner

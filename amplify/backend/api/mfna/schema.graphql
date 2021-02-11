@@ -1,6 +1,13 @@
-type Comment @model {
+type Comment
+  @model
+  @auth(
+    rules: [
+      { allow: owner, operations: [create, read, update, delete] }
+      { allow: public, operations: [create, read] }
+    ]
+  ) {
   id: ID!
   body: String!
-  owner: String!
+  owner: String
   createdAt: AWSDateTime
 }

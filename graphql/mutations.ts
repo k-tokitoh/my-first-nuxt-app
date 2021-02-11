@@ -2,20 +2,6 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const createComment = /* GraphQL */ `
-  mutation CreateComment(
-    $input: CreateCommentInput!
-    $condition: ModelCommentConditionInput
-  ) {
-    createComment(input: $input, condition: $condition) {
-      id
-      body
-      owner
-      createdAt
-      updatedAt
-    }
-  }
-`;
 export const updateComment = /* GraphQL */ `
   mutation UpdateComment(
     $input: UpdateCommentInput!
@@ -36,6 +22,20 @@ export const deleteComment = /* GraphQL */ `
     $condition: ModelCommentConditionInput
   ) {
     deleteComment(input: $input, condition: $condition) {
+      id
+      body
+      owner
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const createComment = /* GraphQL */ `
+  mutation CreateComment(
+    $input: CreateCommentInput!
+    $condition: ModelCommentConditionInput
+  ) {
+    createComment(input: $input, condition: $condition) {
       id
       body
       owner
