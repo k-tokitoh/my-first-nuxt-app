@@ -1,0 +1,11 @@
+{
+  "AppSyncApiName": "mfna",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthCognitoUserPoolId": {
+    "Fn::GetAtt": [
+      "authmfnaccb05d21",
+      "Outputs.UserPoolId"
+    ]
+  }
+}
