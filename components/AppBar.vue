@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar app>
+  <v-app-bar app :height="height">
     <v-app-bar-nav-icon>
       <NuxtLink to="/"><AppLogo /></NuxtLink>
     </v-app-bar-nav-icon>
@@ -20,7 +20,12 @@
 import Vue from 'vue'
 import { mapState } from 'vuex'
 
+export const height: number = 64
+
 export default Vue.extend({
+  data() {
+    return { height: height }
+  },
   computed: mapState(['currentUser']),
 })
 </script>

@@ -4,12 +4,14 @@
 
 export type UpdateCommentInput = {
   id: string,
+  type?: string | null,
   body?: string | null,
   owner?: string | null,
   createdAt?: string | null,
 };
 
 export type ModelCommentConditionInput = {
+  type?: ModelStringInput | null,
   body?: ModelStringInput | null,
   createdAt?: ModelStringInput | null,
   and?: Array< ModelCommentConditionInput | null > | null,
@@ -63,6 +65,7 @@ export type DeleteCommentInput = {
 
 export type CreateCommentInput = {
   id?: string | null,
+  type: string,
   body: string,
   owner?: string | null,
   createdAt?: string | null,
@@ -70,6 +73,7 @@ export type CreateCommentInput = {
 
 export type ModelCommentFilterInput = {
   id?: ModelIDInput | null,
+  type?: ModelStringInput | null,
   body?: ModelStringInput | null,
   owner?: ModelStringInput | null,
   createdAt?: ModelStringInput | null,
@@ -94,6 +98,22 @@ export type ModelIDInput = {
   size?: ModelSizeInput | null,
 };
 
+export type ModelStringKeyConditionInput = {
+  eq?: string | null,
+  le?: string | null,
+  lt?: string | null,
+  ge?: string | null,
+  gt?: string | null,
+  between?: Array< string | null > | null,
+  beginsWith?: string | null,
+};
+
+export enum ModelSortDirection {
+  ASC = "ASC",
+  DESC = "DESC",
+}
+
+
 export type UpdateCommentMutationVariables = {
   input: UpdateCommentInput,
   condition?: ModelCommentConditionInput | null,
@@ -103,9 +123,10 @@ export type UpdateCommentMutation = {
   updateComment:  {
     __typename: "Comment",
     id: string,
+    type: string,
     body: string,
     owner: string | null,
-    createdAt: string | null,
+    createdAt: string,
     updatedAt: string,
   } | null,
 };
@@ -119,9 +140,10 @@ export type DeleteCommentMutation = {
   deleteComment:  {
     __typename: "Comment",
     id: string,
+    type: string,
     body: string,
     owner: string | null,
-    createdAt: string | null,
+    createdAt: string,
     updatedAt: string,
   } | null,
 };
@@ -135,9 +157,10 @@ export type CreateCommentMutation = {
   createComment:  {
     __typename: "Comment",
     id: string,
+    type: string,
     body: string,
     owner: string | null,
-    createdAt: string | null,
+    createdAt: string,
     updatedAt: string,
   } | null,
 };
@@ -150,9 +173,10 @@ export type GetCommentQuery = {
   getComment:  {
     __typename: "Comment",
     id: string,
+    type: string,
     body: string,
     owner: string | null,
-    createdAt: string | null,
+    createdAt: string,
     updatedAt: string,
   } | null,
 };
@@ -169,9 +193,35 @@ export type ListCommentsQuery = {
     items:  Array< {
       __typename: "Comment",
       id: string,
+      type: string,
       body: string,
       owner: string | null,
-      createdAt: string | null,
+      createdAt: string,
+      updatedAt: string,
+    } | null > | null,
+    nextToken: string | null,
+  } | null,
+};
+
+export type ListCommentsSortedByCreatedAtQueryVariables = {
+  type?: string | null,
+  createdAt?: ModelStringKeyConditionInput | null,
+  sortDirection?: ModelSortDirection | null,
+  filter?: ModelCommentFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type ListCommentsSortedByCreatedAtQuery = {
+  listCommentsSortedByCreatedAt:  {
+    __typename: "ModelCommentConnection",
+    items:  Array< {
+      __typename: "Comment",
+      id: string,
+      type: string,
+      body: string,
+      owner: string | null,
+      createdAt: string,
       updatedAt: string,
     } | null > | null,
     nextToken: string | null,
@@ -186,9 +236,10 @@ export type OnCreateCommentSubscription = {
   onCreateComment:  {
     __typename: "Comment",
     id: string,
+    type: string,
     body: string,
     owner: string | null,
-    createdAt: string | null,
+    createdAt: string,
     updatedAt: string,
   } | null,
 };
@@ -201,9 +252,10 @@ export type OnUpdateCommentSubscription = {
   onUpdateComment:  {
     __typename: "Comment",
     id: string,
+    type: string,
     body: string,
     owner: string | null,
-    createdAt: string | null,
+    createdAt: string,
     updatedAt: string,
   } | null,
 };
@@ -216,9 +268,10 @@ export type OnDeleteCommentSubscription = {
   onDeleteComment:  {
     __typename: "Comment",
     id: string,
+    type: string,
     body: string,
     owner: string | null,
-    createdAt: string | null,
+    createdAt: string,
     updatedAt: string,
   } | null,
 };

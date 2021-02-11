@@ -5,9 +5,15 @@ type Comment
       { allow: owner, operations: [create, read, update, delete] }
       { allow: public, operations: [create, read] }
     ]
+  )
+  @key(
+    name: "byTypeCreatedAt"
+    fields: ["type", "createdAt"]
+    queryField: "listCommentsSortedByCreatedAt"
   ) {
   id: ID!
+  type: String!
   body: String!
   owner: String
-  createdAt: AWSDateTime
+  createdAt: AWSDateTime!
 }

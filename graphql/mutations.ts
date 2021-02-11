@@ -9,6 +9,7 @@ export const updateComment = /* GraphQL */ `
   ) {
     updateComment(input: $input, condition: $condition) {
       id
+      type
       body
       owner
       createdAt
@@ -23,6 +24,7 @@ export const deleteComment = /* GraphQL */ `
   ) {
     deleteComment(input: $input, condition: $condition) {
       id
+      type
       body
       owner
       createdAt
@@ -37,6 +39,7 @@ export const createComment = /* GraphQL */ `
   ) {
     createComment(input: $input, condition: $condition) {
       id
+      type
       body
       owner
       createdAt
