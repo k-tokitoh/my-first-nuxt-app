@@ -5,15 +5,15 @@
 export const onCreateComment = /* GraphQL */ `
   subscription OnCreateComment($owner: String) {
     onCreateComment(owner: $owner) {
-      id
+      # id
       type
-      body
-      owner
-      createdAt
-      updatedAt
+      # body
+      # owner
+      # createdAt
+      # updatedAt
     }
   }
-`;
+`
 export const onUpdateComment = /* GraphQL */ `
   subscription OnUpdateComment($owner: String) {
     onUpdateComment(owner: $owner) {
@@ -25,7 +25,7 @@ export const onUpdateComment = /* GraphQL */ `
       updatedAt
     }
   }
-`;
+`
 export const onDeleteComment = /* GraphQL */ `
   subscription OnDeleteComment($owner: String) {
     onDeleteComment(owner: $owner) {
@@ -37,4 +37,4 @@ export const onDeleteComment = /* GraphQL */ `
       updatedAt
     }
   }
-`;
+`
