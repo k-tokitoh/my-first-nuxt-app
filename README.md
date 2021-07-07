@@ -8,8 +8,10 @@ https://mfna.k-tokitoh.com/
     - Target: static
 - Platform
   - [AWS Amplify](https://aws.amazon.com/amplify/)
-- Authentication
-  - [AWS Cognito](https://aws.amazon.com/jp/cognito/)
+    - Authentication
+      - [AWS Cognito](https://aws.amazon.com/jp/cognito/)
+    - API
+      - [GraphQL](https://graphql.org/)
 - State Management
   - [Vuex](https://vuex.vuejs.org/)
 - UI Library
@@ -18,9 +20,6 @@ https://mfna.k-tokitoh.com/
   - [nuxt/pwa](https://pwa.nuxtjs.org/)
 - Task Management
   - [Github Projects](https://github.com/features/project-management/)
-- Others
-  - Infinite scroll
-    - own implementation (without library)
 
 ## Build Setup
 

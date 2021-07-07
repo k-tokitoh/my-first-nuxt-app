@@ -9,7 +9,7 @@
                 v-for="(comment, index) in comments"
                 :key="comment.id"
                 :comment="comment"
-                :scroll="index - 1 === comments.length"
+                :scroll="index === comments.length - 1"
               />
             </template>
           </v-list>
@@ -46,12 +46,21 @@
 <script lang="ts">
 import Vue from 'vue'
 import { mapState } from 'vuex'
-import { API, GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api'
+import {
+  API,
+  GraphQLResult,
+  GRAPHQL_AUTH_MODE,
+  graphqlOperation,
+} from '@aws-amplify/api'
+import { AWSAppSyncRealTimeProvider } from '../node_modules/@aws-amplify/pubsub/lib-esm'
+import { Observable } from '../node_modules/zen-observable-ts'
 import { createComment } from '../graphql/mutations'
 import { listCommentsSortedByCreatedAt } from '../graphql/queries'
+import { onCreateComment } from '../graphql/subscriptions'
 import {
   CreateCommentMutation,
   ListCommentsSortedByCreatedAtQuery,
+  OnCreateCommentSubscription,
 } from '../src/API'
 import { height as appBarHeight } from '../components/AppBar.vue'
 
@@ -67,9 +76,6 @@ type Comments = NonNullable<
 >
 
 export default Vue.extend({
-  async created() {
-    this.comments = await this.listComments()
-  },
   data() {
     return {
       comment: { ...initialComment },
@@ -78,6 +84,15 @@ export default Vue.extend({
     }
   },
   computed: mapState(['currentUser']),
+  async created() {
+    this.comments = await this.listComments()
+    this.containerStyle = {
+      height: `${
+        window.document.documentElement.clientHeight - appBarHeight
+      }px`,
+    }
+    this.subscribe()
+  },
   methods: {
     async onSubmit() {
       this.validate() && this.createComment()
@@ -101,13 +116,36 @@ export default Vue.extend({
     validate() {
       return (this.$refs.form as any).validate()
     },
-  },
-  mounted() {
-    this.containerStyle = {
-      height: `${
-        window.document.documentElement.clientHeight - appBarHeight
-      }px`,
-    }
+    subscribe() {
+      console.log('subscribe function called.')
+      const observable = API.graphql({
+        query: onCreateComment,
+        authMode: GRAPHQL_AUTH_MODE.API_KEY,
+      }) as Observable<{ value: { data: OnCreateCommentSubscription } }>
+      observable && console.log('got res.')
+      observable.subscribe({
+        next: (data) => {
+          console.log('next function called.')
+          console.log(data)
+          // console.log(data.value.data.onCreateComment)
+          // this.comments &&= [...this.comments, data.onCreateComment]
+          // console.log(this.comments?.map((c) => c?.body))
+        },
+      })
+      // const res = await API.graphql(
+      //   graphqlOperation(onCreateComment),
+      //   {authMode: GRAPHQL_AUTH_MODE.API_KEY},
+      // )
+      // res && console.log('got res.')
+      // res.subscribe({
+      //   next: (data) => {
+      //     console.log('next function called.')
+      //     console.log(data.)
+      //     // this.comments &&= [...this.comments, data.onCreateComment]
+      //     console.log(this.comments?.map((c) => c?.body))
+      //   },
+      // })
+    },
   },
 })
 </script>
