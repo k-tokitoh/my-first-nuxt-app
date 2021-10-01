@@ -8,7 +8,7 @@
     "start": "nuxt-ts start"
   },
   "dependencies": {
-    "@aws-amplify/ui-vue": "^1.0.5",
+    "@aws-amplify/ui-vue": "^1.1.13",
     "@nuxt/typescript-runtime": "^2.1.0",
     "@nuxtjs/axios": "^5.13.1",
     "@nuxtjs/onesignal": "^3.0.0-beta.16",
